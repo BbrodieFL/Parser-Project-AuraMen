@@ -6,5 +6,5 @@ Group Members
 1. Ben Chin
 2. Will Curry
 3. Olo Masiza
-4. Aman Duggati
+4. Aman Daggumati
 5. Jacob York
