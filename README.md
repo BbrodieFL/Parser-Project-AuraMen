@@ -3,7 +3,7 @@ Our Team's name is Aura Men after the Oaklhoma City Thunder
 We will be implementing Java with our parser
 
 Group Members
-1. Ben Chin
+1. Ben Chin (atvbean)
 2. Will Curry (CWill22)
 3. Olo Masiza (BbrodieFL)
 4. Aman Daggumati
