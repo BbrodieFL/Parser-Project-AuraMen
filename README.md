@@ -11,7 +11,7 @@ Group Members
 
 Setup for our project:
 1) in the directory project directory open a terminal
-2) Run the command javac -cp "lib/antlr-4.1.3-complete.jar:generated/grammar" -d bin src/ParserProject.java generated/grammar/*.java
+2) Run the command javac -cp "lib/antlr-4.13.2-complete.jar:generated/grammar" -d bin src/ParserProject.java generated/grammar/*.java
 3) Once compiling is finished run the command java -cp "lib/antlr-4.9.2-complete.jar:bin" ParserProject
  
 
