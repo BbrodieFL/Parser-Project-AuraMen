@@ -4,7 +4,7 @@ We will be implementing Java with our parser
 
 Group Members
 1. Ben Chin
-2. Will Curry
+2. Will Curry (CWill22)
 3. Olo Masiza
 4. Aman Daggumati
 5. Jacob York
