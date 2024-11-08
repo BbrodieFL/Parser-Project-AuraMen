@@ -1,4 +1,4 @@
-// Generated from /Users/willis/Documents/Parser-Project-AuraMen/parserProjectJava/src/main/java/resources/Python3.g4 by ANTLR 4.13.1
+// Generated from Python3.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -8,9 +8,9 @@ import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class Python3Lexer extends Lexer {
-	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -101,21 +101,13 @@ public class Python3Lexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
-		"\u0004\u0000\u0002\u0012\u0006\uffff\uffff\u0002\u0000\u0007\u0000\u0002"+
-		"\u0001\u0007\u0001\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0003\u0001\u0011\b\u0001\u0000\u0000\u0002\u0001\u0001\u0003\u0002"+
-		"\u0001\u0000\u0001\u0004\u0000%%*+--//\u0015\u0000\u0001\u0001\u0000\u0000"+
-		"\u0000\u0000\u0003\u0001\u0000\u0000\u0000\u0001\u0005\u0001\u0000\u0000"+
-		"\u0000\u0003\u0010\u0001\u0000\u0000\u0000\u0005\u0006\u0007\u0000\u0000"+
-		"\u0000\u0006\u0002\u0001\u0000\u0000\u0000\u0007\u0011\u0005=\u0000\u0000"+
-		"\b\t\u0005+\u0000\u0000\t\u0011\u0005=\u0000\u0000\n\u000b\u0005-\u0000"+
-		"\u0000\u000b\u0011\u0005=\u0000\u0000\f\r\u0005*\u0000\u0000\r\u0011\u0005"+
-		"=\u0000\u0000\u000e\u000f\u0005/\u0000\u0000\u000f\u0011\u0005=\u0000"+
-		"\u0000\u0010\u0007\u0001\u0000\u0000\u0000\u0010\b\u0001\u0000\u0000\u0000"+
-		"\u0010\n\u0001\u0000\u0000\u0000\u0010\f\u0001\u0000\u0000\u0000\u0010"+
-		"\u000e\u0001\u0000\u0000\u0000\u0011\u0004\u0001\u0000\u0000\u0000\u0002"+
-		"\u0000\u0010\u0000";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\4\24\b\1\4\2\t\2"+
+		"\4\3\t\3\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3\23\n\3\2\2\4"+
+		"\3\3\5\4\3\2\3\6\2\'\',-//\61\61\2\27\2\3\3\2\2\2\2\5\3\2\2\2\3\7\3\2"+
+		"\2\2\5\22\3\2\2\2\7\b\t\2\2\2\b\4\3\2\2\2\t\23\7?\2\2\n\13\7-\2\2\13\23"+
+		"\7?\2\2\f\r\7/\2\2\r\23\7?\2\2\16\17\7,\2\2\17\23\7?\2\2\20\21\7\61\2"+
+		"\2\21\23\7?\2\2\22\t\3\2\2\2\22\n\3\2\2\2\22\f\3\2\2\2\22\16\3\2\2\2\22"+
+		"\20\3\2\2\2\23\6\3\2\2\2\4\2\22\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
