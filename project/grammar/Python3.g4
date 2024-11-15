@@ -11,12 +11,11 @@ statement: assignment
 assignment: VARNAME Assignment_operators expression
     | VARNAME Comparison_operators expression;
 
-if_statement: 'if' condition ':' statement*;
-elif_statement: 'elif' condition ':' statement*;
+if_statement: 'if' expression ':' statement*;
+elif_statement: 'elif' expression ':' statement*;
 else_statement: 'else' ':' statement*;
 
-condition: expression;
-
+// This is the define of expression
 expression: NOT expression
     | expression Arithmetic_or_Comparison_operators expression
     | expression Logical_operators expression
@@ -28,8 +27,10 @@ expression: NOT expression
     | list
     | '(' expression ')';
 
+// This is our list data type defined
 list: '[' (expression (',' expression)*)? ']';
 
+//These are our basic data types
 INT: '-'? [0-9]+;
 FLOAT: '-'? [0-9]+ '.' [0-9]+;
 STRING: '"' (~["\r\n])* '"' | '\'' (~['\\\r\n])* '\'';
@@ -39,12 +40,14 @@ Arithmetic_or_Comparison_operators:
       Arithmetic_operator
     | Comparison_operators;
 
+// Our arthemetic operators, assignment operators and comparison operators
 Arithmetic_operator: '+' | '-' | '*' | '/' | '%';
 Assignment_operators: '=' | '+=' | '-=' | '*=' | '/=';
 Comparison_operators: '<' | '<=' | '>' | '>=' | '==' | '!=';
 
 Logical_operators: AND | OR;
 
+//logical operator words
 AND: 'and';
 OR: 'or';
 NOT: 'not';
