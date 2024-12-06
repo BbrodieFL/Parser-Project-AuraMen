@@ -127,17 +127,27 @@ public interface Python3Listener extends ParseTreeListener {
 	 */
 	void exitAssignment_operator(Python3Parser.Assignment_operatorContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code MulExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
+	 * Enter a parse tree produced by {@link Python3Parser#arithmetic_operators}.
 	 * @param ctx the parse tree
 	 */
-	void enterMulExpr(Python3Parser.MulExprContext ctx);
+	void enterArithmetic_operators(Python3Parser.Arithmetic_operatorsContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code MulExpr}
+	 * Exit a parse tree produced by {@link Python3Parser#arithmetic_operators}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithmetic_operators(Python3Parser.Arithmetic_operatorsContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ArithExpr}
 	 * labeled alternative in {@link Python3Parser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitMulExpr(Python3Parser.MulExprContext ctx);
+	void enterArithExpr(Python3Parser.ArithExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ArithExpr}
+	 * labeled alternative in {@link Python3Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithExpr(Python3Parser.ArithExprContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code AndExpr}
 	 * labeled alternative in {@link Python3Parser#expression}.
@@ -187,18 +197,6 @@ public interface Python3Listener extends ParseTreeListener {
 	 */
 	void exitFloatExpr(Python3Parser.FloatExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code SubExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterSubExpr(Python3Parser.SubExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code SubExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitSubExpr(Python3Parser.SubExprContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code NegExpr}
 	 * labeled alternative in {@link Python3Parser#expression}.
 	 * @param ctx the parse tree
@@ -211,18 +209,6 @@ public interface Python3Listener extends ParseTreeListener {
 	 */
 	void exitNegExpr(Python3Parser.NegExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code AddExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAddExpr(Python3Parser.AddExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AddExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAddExpr(Python3Parser.AddExprContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code OrExpr}
 	 * labeled alternative in {@link Python3Parser#expression}.
 	 * @param ctx the parse tree
@@ -234,18 +220,6 @@ public interface Python3Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitOrExpr(Python3Parser.OrExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code DivExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterDivExpr(Python3Parser.DivExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code DivExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitDivExpr(Python3Parser.DivExprContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code CompareExpr}
 	 * labeled alternative in {@link Python3Parser#expression}.
@@ -306,18 +280,6 @@ public interface Python3Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitListExpr(Python3Parser.ListExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ModExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterModExpr(Python3Parser.ModExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ModExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitModExpr(Python3Parser.ModExprContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code ParenExpr}
 	 * labeled alternative in {@link Python3Parser#expression}.

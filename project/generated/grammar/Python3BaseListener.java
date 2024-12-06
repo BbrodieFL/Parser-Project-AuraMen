@@ -160,13 +160,25 @@ public class Python3BaseListener implements Python3Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMulExpr(Python3Parser.MulExprContext ctx) { }
+	@Override public void enterArithmetic_operators(Python3Parser.Arithmetic_operatorsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMulExpr(Python3Parser.MulExprContext ctx) { }
+	@Override public void exitArithmetic_operators(Python3Parser.Arithmetic_operatorsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterArithExpr(Python3Parser.ArithExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArithExpr(Python3Parser.ArithExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -220,18 +232,6 @@ public class Python3BaseListener implements Python3Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSubExpr(Python3Parser.SubExprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSubExpr(Python3Parser.SubExprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterNegExpr(Python3Parser.NegExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -244,18 +244,6 @@ public class Python3BaseListener implements Python3Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAddExpr(Python3Parser.AddExprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAddExpr(Python3Parser.AddExprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterOrExpr(Python3Parser.OrExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -263,18 +251,6 @@ public class Python3BaseListener implements Python3Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitOrExpr(Python3Parser.OrExprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDivExpr(Python3Parser.DivExprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDivExpr(Python3Parser.DivExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -335,18 +311,6 @@ public class Python3BaseListener implements Python3Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitListExpr(Python3Parser.ListExprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterModExpr(Python3Parser.ModExprContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitModExpr(Python3Parser.ModExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

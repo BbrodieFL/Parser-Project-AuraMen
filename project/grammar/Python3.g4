@@ -47,13 +47,12 @@ assignment_operator:
     '=' | '+=' | '-=' | '*=' | '/=';
 
 
+arithmetic_operators:
+    '*' | '/' | '+' | '-' | '%';
+
 expression:
-    expression '*' expression                 # MulExpr
-  | expression '/' expression                 # DivExpr
-  | expression '+' expression                 # AddExpr
-  | expression '-' expression                 # SubExpr
-  | expression '%' expression                 # ModExpr
-  | expression Comparison_operators expression # CompareExpr
+    expression arithmetic_operators expression  # ArithExpr
+  | expression Comparison_operators expression  # CompareExpr
   | 'not' expression                          # NotExpr
   | expression 'and' expression               # AndExpr
   | expression 'or' expression                # OrExpr
