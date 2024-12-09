@@ -6,7 +6,7 @@ Group Members
 1. Ben Chin (atvbean)
 2. Will Curry (CWill22)
 3. Olo Masiza (BbrodieFL)
-4. Aman Daggumati
+4. Aman Daggumati(adaggumati)
 5. Jacob York
 
 Setup for our project:
