@@ -1,96 +1,133 @@
 grammar Python3;
 
-start: program;
-program: (statement+ | NEWLINE)+;
-
-statement:
-    expression (NEWLINE | EOF)
-  | assignment (NEWLINE | EOF)
-  | if_statement
-  | for_statement
-  | while_statement
-  | NEWLINE ;
-
-if_statement:
-    'if' expression ':' NEWLINE block (elif_statement)* (else_statement)?
-;
-
-elif_statement:
-    INDENT* 'elif' expression ':' NEWLINE block
-;
-
-else_statement:
-    INDENT* 'else' ':' NEWLINE block
-;
-
-for_statement:
-    'for' expression 'in' expression ':' NEWLINE block
-;
-
-while_statement:
-    'while' expression ':' NEWLINE block
-;
-
-blockStatement:
-    INDENT+ statement;
+start: program EOF;
+program: (statement NEWLINE?)*;
 
 
-block:
-    blockStatement+;
+//STATEMENTS    
+
+statement
+    : assignment
+    | if_statement
+    | for_statement
+    | while_statement
+    | comment_statement
+    | NEWLINE
+    ;
+statement_inif
+    : assignment
+    | for_statement
+    | comment_statement
+    | NEWLINE
+    ;
+
+assignment
+    : VARNAME Assignment_operators expression
+    | VARNAME Comparison_operators expression NEWLINE
+    ;
+
+if_statement
+    : 'if' expression ':' (NEWLINE INDENT)? block_inif
+      (elif_statement)*
+      (else_statement)? 
+    ;
+
+elif_statement
+    : 'elif' expression ':' (NEWLINE INDENT)? block_inif
+    ;
+
+else_statement
+    : 'else' ':' (NEWLINE INDENT)? block_inif
+    ;
+
+for_statement
+    : 'for' VARNAME 'in' expression ':' (NEWLINE INDENT)? block
+    ;
+
+while_statement
+    : 'while' expression ':' (NEWLINE INDENT)?  block_inif
+    ;
+
+comment_statement
+    : COMMENT NEWLINE
+    ;
+
+block
+    : (statement)* 
+    ;
+    
+block_inif
+    :(statement_inif)*
+    ;
 
 
-assignment:
-    VARNAME assignment_operator expression;
 
+//EXPRESSIONS   
 
-assignment_operator:
-    '=' | '+=' | '-=' | '*=' | '/=';
+expression
+    : NOT expression
+    | expression Arithmetic_or_Comparison_operators expression
+    | expression Logical_operators expression
+    | function_call
+    | VARNAME
+    | INT
+    | FLOAT
+    | STRING
+    | BOOLEAN
+    | list
+    | '(' expression ')'
+    ;
 
+function_call
+    : VARNAME '(' (expression (',' expression)*)? ')'
+    ;
 
-arithmetic_operators:
-    '*' | '/' | '+' | '-' | '%';
+list
+    : '[' (expression (',' expression)*)? ']'
+    ;
 
-expression:
-    expression arithmetic_operators expression  # ArithExpr
-  | expression Comparison_operators expression  # CompareExpr
-  | 'not' expression                          # NotExpr
-  | expression 'and' expression               # AndExpr
-  | expression 'or' expression                # OrExpr
-  | '-' (INT|FLOAT)                          # NegExpr
-  | VARNAME '(' paramExpr ')'                 # FuncCallExpr
-  | INT                                       # IntExpr
-  | FLOAT                                     # FloatExpr
-  | STRING                                    # StringExpr
-  | BOOLEAN                                   # BoolExpr
-  | list                                      # ListExpr
-  | VARNAME                                   # VarExpr
-  | '(' expression ')'                        # ParenExpr
-;
+//LEXER RULES  
 
+INT: '-'? [0-9]+;
+FLOAT: '-'? [0-9]+ '.' [0-9]+;
 
-paramExpr:
-    expression (',' expression)*;
+// Single- and double-quoted strings only
+STRING
+    : '"' (~["\r\n])* '"'
+    | '\'' (~['\r\n])* '\''
+    ;
 
-list:
-    '[' (expression (',' expression)*)? ']';
+BOOLEAN: 'True' | 'False';
 
+Arithmetic_or_Comparison_operators
+    : Arithmetic_operator
+    | Comparison_operators
+    ;
 
-Comparison_operators:
-    '==' | '!=' | '<=' | '>=' | '<' | '>';
+Arithmetic_operator: '+' | '-' | '*' | '/' | '%';
 
+Assignment_operators: '=' | '+=' | '-=' | '*=' | '/=';
+
+Comparison_operators: '<' | '<=' | '>' | '>=' | '==' | '!=';
+
+Logical_operators: AND | OR;
+
+AND: 'and';
+OR: 'or';
+NOT: 'not';
 
 VARNAME: [a-zA-Z_][a-zA-Z0-9_]*;
 
-INT: [0-9]+;
-FLOAT: [0-9]+ '.' [0-9]+;
-STRING: '"' (~["\r\n])* '"' | '\'' (~['\\\r\n])* '\'';
-BOOLEAN: 'True' | 'False';
+COMMENT
+    : '#' ~[\r\n]* -> skip
+    ;
+    
+INDENT: '<INDENT>';
+DEDENT: '<DEDENT>';
+NEWLINE: '\r'? '\n' INDENT*;
 
-NEWLINE: '\r'? '\n';
+// Triple-quoted blocks treated as multi-line comments
+MULTILINE_COMMENT
+  :('\'\'\'' | '"""') .*? ('\'\'\'' | '"""') -> skip;
 
-INDENT: '\t';
-
-WS: [ ]+ -> skip;
-
-SINGLE_LINE_COMMENT: '#' ~[\r\n]* -> skip;
-MULTI_LINE_COMMENT: ('\'\'\'' | '"""') .*? ('\'\'\'' | '"""') -> skip;
+WS: [ \t]+ -> skip;
