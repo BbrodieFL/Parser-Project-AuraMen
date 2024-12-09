@@ -10,10 +10,8 @@ Group Members
 5. Jacob York
 
 Setup for our project:
-1) in the directory project directory open a terminal
-2) Run the command javac -cp "lib/antlr-4.13.2-complete.jar:generated/grammar" -d bin src/ParserProject.java generated/grammar/*.java
+1) Navigate to the root directory .../Parser-Project-AuraMen/project
+2) In the root directory run the command to compile the project javac -cp "lib/antlr-4.13.2-complete.jar:generated/grammar" -d bin src/ParserProject.java generated/grammar/*.java
 3) Once compiling is finished run the command java -cp "lib/antlr-4.9.2-complete.jar:bin" ParserProject in the root directory once again
- 
-
 
 
