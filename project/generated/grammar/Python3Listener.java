@@ -37,6 +37,26 @@ public interface Python3Listener extends ParseTreeListener {
 	 */
 	void exitStatement(Python3Parser.StatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Python3Parser#statement_inif}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement_inif(Python3Parser.Statement_inifContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Python3Parser#statement_inif}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement_inif(Python3Parser.Statement_inifContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Python3Parser#assignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignment(Python3Parser.AssignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Python3Parser#assignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignment(Python3Parser.AssignmentContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Python3Parser#if_statement}.
 	 * @param ctx the parse tree
 	 */
@@ -87,15 +107,15 @@ public interface Python3Listener extends ParseTreeListener {
 	 */
 	void exitWhile_statement(Python3Parser.While_statementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Python3Parser#blockStatement}.
+	 * Enter a parse tree produced by {@link Python3Parser#comment_statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterBlockStatement(Python3Parser.BlockStatementContext ctx);
+	void enterComment_statement(Python3Parser.Comment_statementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Python3Parser#blockStatement}.
+	 * Exit a parse tree produced by {@link Python3Parser#comment_statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitBlockStatement(Python3Parser.BlockStatementContext ctx);
+	void exitComment_statement(Python3Parser.Comment_statementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Python3Parser#block}.
 	 * @param ctx the parse tree
@@ -107,213 +127,35 @@ public interface Python3Listener extends ParseTreeListener {
 	 */
 	void exitBlock(Python3Parser.BlockContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Python3Parser#assignment}.
+	 * Enter a parse tree produced by {@link Python3Parser#block_inif}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssignment(Python3Parser.AssignmentContext ctx);
+	void enterBlock_inif(Python3Parser.Block_inifContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Python3Parser#assignment}.
+	 * Exit a parse tree produced by {@link Python3Parser#block_inif}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssignment(Python3Parser.AssignmentContext ctx);
+	void exitBlock_inif(Python3Parser.Block_inifContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Python3Parser#assignment_operator}.
+	 * Enter a parse tree produced by {@link Python3Parser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssignment_operator(Python3Parser.Assignment_operatorContext ctx);
+	void enterExpression(Python3Parser.ExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Python3Parser#assignment_operator}.
+	 * Exit a parse tree produced by {@link Python3Parser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssignment_operator(Python3Parser.Assignment_operatorContext ctx);
+	void exitExpression(Python3Parser.ExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Python3Parser#arithmetic_operators}.
+	 * Enter a parse tree produced by {@link Python3Parser#function_call}.
 	 * @param ctx the parse tree
 	 */
-	void enterArithmetic_operators(Python3Parser.Arithmetic_operatorsContext ctx);
+	void enterFunction_call(Python3Parser.Function_callContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Python3Parser#arithmetic_operators}.
+	 * Exit a parse tree produced by {@link Python3Parser#function_call}.
 	 * @param ctx the parse tree
 	 */
-	void exitArithmetic_operators(Python3Parser.Arithmetic_operatorsContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ArithExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterArithExpr(Python3Parser.ArithExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ArithExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitArithExpr(Python3Parser.ArithExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code AndExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAndExpr(Python3Parser.AndExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AndExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAndExpr(Python3Parser.AndExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code StringExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterStringExpr(Python3Parser.StringExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code StringExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitStringExpr(Python3Parser.StringExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code BoolExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterBoolExpr(Python3Parser.BoolExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code BoolExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitBoolExpr(Python3Parser.BoolExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code FloatExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterFloatExpr(Python3Parser.FloatExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code FloatExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitFloatExpr(Python3Parser.FloatExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NegExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterNegExpr(Python3Parser.NegExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NegExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitNegExpr(Python3Parser.NegExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code OrExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterOrExpr(Python3Parser.OrExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code OrExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitOrExpr(Python3Parser.OrExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code CompareExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterCompareExpr(Python3Parser.CompareExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code CompareExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitCompareExpr(Python3Parser.CompareExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code VarExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterVarExpr(Python3Parser.VarExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code VarExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitVarExpr(Python3Parser.VarExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NotExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterNotExpr(Python3Parser.NotExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NotExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitNotExpr(Python3Parser.NotExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code IntExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterIntExpr(Python3Parser.IntExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code IntExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitIntExpr(Python3Parser.IntExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ListExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterListExpr(Python3Parser.ListExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ListExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitListExpr(Python3Parser.ListExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ParenExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterParenExpr(Python3Parser.ParenExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ParenExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitParenExpr(Python3Parser.ParenExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code FuncCallExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterFuncCallExpr(Python3Parser.FuncCallExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code FuncCallExpr}
-	 * labeled alternative in {@link Python3Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitFuncCallExpr(Python3Parser.FuncCallExprContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Python3Parser#paramExpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterParamExpr(Python3Parser.ParamExprContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Python3Parser#paramExpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitParamExpr(Python3Parser.ParamExprContext ctx);
+	void exitFunction_call(Python3Parser.Function_callContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Python3Parser#list}.
 	 * @param ctx the parse tree
